@@ -40,6 +40,16 @@ export const PUBLISHED = {
   promise: 'Up to three strong options, all-in pricing, e-sign confirmation, 24/7 support.',
 }
 
+/* PUBLISHED market reference. Air ambulance repatriation from Türkiye to the
+   UK is quoted publicly at USD 46,000 to 120,000, and Middle East to UK at
+   GBP 40,000 to 100,000. The hero quote is shown against this band on screen
+   so a reviewer can see where it sits rather than taking it on trust. */
+export const MARKET_BAND = {
+  low: 40000,
+  high: 100000,
+  note: 'Published range for air ambulance repatriation from Türkiye to the UK. A ventilated ICU transfer on a light jet sits in the lower half of it.',
+}
+
 /* The vetting vocabulary a broker genuinely works with. These are real
    industry programmes; the ratings attached to operators in this demo are
    illustrative. */

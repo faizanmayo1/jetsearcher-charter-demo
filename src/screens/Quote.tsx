@@ -19,7 +19,7 @@ import {
   tradeoff,
   viableOptions,
 } from '../data/mission'
-import { CLIENT, PUBLISHED, gbp, hhmm, pct } from '../data/jetsearcher'
+import { CLIENT, MARKET_BAND, PUBLISHED, gbp, gbpCompact, hhmm, pct } from '../data/jetsearcher'
 import { heroClient } from '../data/clients'
 
 let sentOnce = false
@@ -209,7 +209,7 @@ export function Quote() {
                 <span className="tnum font-semibold text-med-deep">{gbp(gap.saving)}</span>. It also puts a
                 ventilated cardiac patient in the air{' '}
                 <span className="tnum font-semibold text-med-deep">{hhmm(gap.timeCost)}</span> longer, with
-                a fuel stop on the ground in the middle of it.
+                a fuel stop on the ground at Brindisi in the middle of it.
               </p>
               <p className="mt-2 text-[11.5px] leading-relaxed text-ink-soft">
                 {CLIENT.ai} presents both and says which it would rank first. It does not decide this one.
@@ -253,6 +253,48 @@ export function Quote() {
           </Panel>
         </div>
       </div>
+
+      {/* -------------------------- where this sits -------------------------- */}
+      {/* A price with no reference point is just a number. This is the published
+          market band, with the quote placed on it. */}
+      <Panel>
+        <PanelHead
+          eyebrow="Sense check"
+          title="Where this quote sits in the market"
+          sub={MARKET_BAND.note}
+          right={<AiTag>Published range</AiTag>}
+        />
+        <div className="mt-6">
+          <div className="relative h-11">
+            <div className="absolute inset-x-0 top-4 h-2.5 overflow-hidden rounded-full bg-mist">
+              <div className="h-full w-full bg-gradient-to-r from-navy-tint via-navy-soft to-navy-deep opacity-70" />
+            </div>
+            {/* The marker */}
+            <div
+              className="absolute top-0 -translate-x-1/2 transition-all duration-700 ease-arc"
+              style={{
+                left: `${Math.min(97, Math.max(3, ((total - MARKET_BAND.low) / (MARKET_BAND.high - MARKET_BAND.low)) * 100))}%`,
+              }}
+            >
+              <div className="flex flex-col items-center">
+                <span className="tnum whitespace-nowrap rounded-md bg-navy px-2 py-[3px] text-[11.5px] font-semibold text-white shadow-rail">
+                  {gbp(total)}
+                </span>
+                <span className="mt-0.5 h-4 w-px bg-navy" />
+              </div>
+            </div>
+          </div>
+          <div className="mt-1 flex justify-between text-[11px] font-medium text-ink-faint">
+            <span className="tnum">{gbpCompact(MARKET_BAND.low)}</span>
+            <span className="tnum">{gbpCompact(MARKET_BAND.high)}</span>
+          </div>
+        </div>
+        <p className="mt-4 text-[11.5px] leading-relaxed text-ink-soft">
+          {CLIENT.ai} shows the band rather than asserting the quote is competitive. A case manager
+          approving a five figure sum wants to know where it sits, and a broker who volunteers that
+          before being asked is a different kind of supplier.
+        </p>
+      </Panel>
 
       {/* ---------------------------- route reference ---------------------------- */}
       <Panel>

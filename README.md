@@ -41,15 +41,19 @@ certificate, or control crew duty.
 patient, stretcher, 4,200 litres of oxygen, physician and flight nurse, EURAMI operator required.
 Request lands 06:12. Options back 06:16.
 
-| | Aircraft | Operator | Transit | All-in |
-|---|---|---|---|---|
-| **Best fit** | Learjet 45XR | Meridian Air Ambulance | 3h 40m direct | **£41,656** |
-| Viable | Citation Bravo | Aurora MedFlight | 5h 06m, 1 tech stop | £39,037 |
-| **Held off the board** | Challenger 604 | Northgate Executive | 3h 35m direct | £57,478 |
+| | Aircraft | Operator | Base | Transit | All-in |
+|---|---|---|---|---|---|
+| **Best fit** | Learjet 45XR | Meridian Air Ambulance | Munich | 3h 39m direct | **£47,734** |
+| Viable | Learjet 35A | Aurora MedFlight | Antalya | 4h 56m, 1 fuel stop | £42,857 |
+| **Held off the board** | Challenger 604 | Northgate Executive | Farnborough | 3h 34m direct | £82,055 |
 
-**The decision in one line:** the cheaper aircraft saves **£2,619** and costs the patient
-**1h 26m** more in the air, including a fuel stop at Rome with the patient on board. Vector ranks
+**The decision in one line:** the cheaper aircraft saves **£4,877** and costs the patient
+**1h 17m** more in the air, including a fuel stop at Brindisi with the patient aboard. Vector ranks
 and presents both. It refuses to decide that one.
+
+All three totals sit inside the **published £40,000 to £100,000 band** for Türkiye to UK air
+ambulance repatriation, and the Quote screen plots the recommendation on that band rather than
+asserting it is competitive.
 
 **The move that buys credibility:** the third aircraft is *held off the board*. JetSearcher's own
 site promises "up to three strong options" — and *up to* is the operative phrase. A third option
@@ -105,10 +109,21 @@ Named for the shortest path between two points on a sphere, which is what a brok
 - **Every operator, aircraft, client and price is invented.** ARGUS, Wyvern, EURAMI and CAMTS are
   named because a broker genuinely works to them, but attaching an invented safety finding to a
   real charter operator would be indefensible, so no real operator appears anywhere.
+- **The performance figures are the real ones.** Learjet 45XR range 2,039 nm against a 1,566 nm
+  leg, so Option A flies direct. Learjet 35A cruises slower and stops for fuel at Brindisi, 641 nm
+  out of Antalya. A King Air 350 was considered and rejected as the second option: its practical
+  charter range is 1,440 to 1,535 nm with reserves, so it could not have flown this leg at all.
+- **The rates are market anchored.** Learjet 45XR charters at $4,250 to $4,450 an hour, King Air
+  350 at EUR 1,800 to 2,800 in Europe. The quote adds a stated premium for installed medical
+  configuration rather than inventing a number.
+- **Türkiye charges no CAA fee for an overflight permit**, so that line is the agent filing it, not
+  a government charge. **Ambulance flights are exempt from Eurocontrol route charges in some zones**,
+  which is shown as a claimable line rather than netted off before it is confirmed.
 - **All arithmetic is computed, not typed.** `src/data/mission.ts` builds each quote from its line
   items and applies the 8% fee, so the totals reconcile. Patient transit is *derived* from
   `flightMin + techStopMin` rather than stored, so it cannot drift from the legs it is made of.
-- **The great circle distance is calculated** from the two airports' coordinates, not asserted.
+- **The great circle distance is calculated** from the two airports' coordinates, not asserted:
+  Antalya to Biggin Hill 1,566 nm, Munich to Antalya 1,080 nm, Antalya to Brindisi 641 nm.
 - The desk median and the client win-rate comparison are computed from their own rows, so a
   headline cannot drift away from the table underneath it.
 

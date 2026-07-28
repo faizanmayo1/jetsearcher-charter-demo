@@ -41,7 +41,7 @@ const CORR = speedVersusWin()
 const SCRIPT: Turn[] = [
   {
     q: 'Why did you rank the Learjet first when it is the more expensive option?',
-    a: `Because the gap is ${gbp(GAP.saving)} and what it buys is ${hhmm(GAP.timeCost)} less time in the air for a ventilated cardiac patient, including a fuel stop at Rome with the patient on board. Both aircraft are EURAMI accredited and both meet every hard requirement except one: the Citation has no family seat left once the medical team is aboard. On fit and transit time the Learjet wins. On price it does not. I have ranked it first and presented both, because the trade is not mine to settle.`,
+    a: `Because the gap is ${gbp(GAP.saving)} and what it buys is ${hhmm(GAP.timeCost)} less time in the air for a ventilated cardiac patient, including a fuel stop at Brindisi with the patient on board. Both aircraft are EURAMI accredited and both meet every hard requirement except one: the 35A has no family seat left once the medical team is aboard. On fit and transit time the Learjet wins. On price it does not. I have ranked it first and presented both, because the trade is not mine to settle.`,
     evidence: [
       { label: 'Price gap', detail: `${gbp(optionTotal(GAP.faster))} against ${gbp(optionTotal(GAP.cheaper))}` },
       { label: 'Transit', detail: `${hhmm(patientTransit(GAP.faster))} against ${hhmm(patientTransit(GAP.cheaper))}` },
@@ -72,7 +72,7 @@ const SCRIPT: Turn[] = [
   },
   {
     q: 'Should we take the cheaper aircraft to protect the margin on this one?',
-    a: `I am not going to answer that. The difference is ${gbp(GAP.saving)} and it lands on a ventilated cardiac patient as ${hhmm(GAP.timeCost)} of additional transit with a fuel stop in the middle. Whether that is acceptable is a clinical judgement about this patient on this day, and it belongs to the transferring physician and the escort lead. I can tell you what each option costs and what each one does. I should not be the thing that decides a patient spends another ninety minutes in the air to protect a margin.`,
+    a: `I am not going to answer that. The difference is ${gbp(GAP.saving)} and it lands on a ventilated cardiac patient as ${hhmm(GAP.timeCost)} of additional transit with a fuel stop in the middle. Whether that is acceptable is a clinical judgement about this patient on this day, and it belongs to the transferring physician and the escort lead. I can tell you what each option costs and what each one does. I should not be the thing that decides a patient spends another seventy seven minutes in the air to protect a margin.`,
     evidence: [
       { label: 'What I can rank', detail: 'Fit, accreditation, transit time, cost' },
       { label: 'What I cannot see', detail: 'Fitness to fly with a technical stop, on this patient, today' },
@@ -278,7 +278,7 @@ export function Vector() {
                   <p className="text-[12px] leading-relaxed text-ink-soft">
                     {GAP.cheaper.aircraft} {GAP.cheaper.registration}, {GAP.cheaper.operator}. All-in{' '}
                     {gbp(optionTotal(GAP.cheaper))}, a saving of {gbp(GAP.saving)}. Adds{' '}
-                    {hhmm(GAP.timeCost)} to patient transit including a fuel stop at Rome Ciampino with the
+                    {hhmm(GAP.timeCost)} to patient transit including a fuel stop at Brindisi with the
                     patient on board. Dual EURAMI and CAMTS accredited. No family seat available.
                   </p>
                 </Block>

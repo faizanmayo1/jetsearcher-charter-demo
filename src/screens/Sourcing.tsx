@@ -192,7 +192,7 @@ export function Sourcing() {
                       positioningMin={option.positioningMin}
                       flightMin={option.flightMin}
                       techStopMin={option.techStopMin}
-                      techStopName={option.techStopMin > 0 ? 'Rome Ciampino' : undefined}
+                      techStopName={option.techStopMin > 0 ? 'Brindisi' : undefined}
                       operatorBase={option.operatorBase}
                     />
                   </div>
@@ -251,15 +251,31 @@ export function Sourcing() {
                       </div>
                     )}
 
-                    {/* The commercial and clinical gap, in one line */}
+                    {/* The commercial and clinical gap, given the room it deserves.
+                        These two figures are the entire decision. */}
                     <div className="rounded-card border border-jade-lit/25 bg-jade-lit/[0.07] p-4">
                       <div className="eyebrow-lit text-jade-lit">The decision in one line</div>
-                      <p className="mt-2 text-[12.5px] leading-relaxed text-white">
-                        {gap.cheaper.aircraft} saves{' '}
-                        <span className="tnum font-semibold text-jade-lit">{gbp(gap.saving)}</span> and costs
-                        the patient{' '}
-                        <span className="tnum font-semibold text-med-lit">{hhmm(gap.timeCost)}</span> more in
-                        transit, including a fuel stop with the patient on board.
+                      <div className="mt-3 flex flex-wrap items-end gap-x-8 gap-y-3">
+                        <div>
+                          <div className="tnum font-display text-figure-sm font-semibold text-jade-lit">
+                            {gbp(gap.saving)}
+                          </div>
+                          <div className="mt-1 text-[11px] font-medium text-cabin-faint">
+                            saved by the cheaper aircraft
+                          </div>
+                        </div>
+                        <div>
+                          <div className="tnum font-display text-figure-sm font-semibold text-med-lit">
+                            {hhmm(gap.timeCost)}
+                          </div>
+                          <div className="mt-1 text-[11px] font-medium text-cabin-faint">
+                            longer in the air, ventilated
+                          </div>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-[12.5px] leading-relaxed text-white">
+                        {gap.cheaper.aircraft} is already on base at Antalya, which is most of why it is
+                        cheaper. It also stops for fuel at Brindisi with the patient on board.
                       </p>
                       <p className="mt-2 text-[11.5px] leading-relaxed text-cabin-faint">
                         {CLIENT.ai} ranks on fit and cost. Whether that trade is acceptable for this patient
